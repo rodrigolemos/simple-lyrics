@@ -13,7 +13,7 @@ export default class List extends Component {
             {song.title}
           </li>
         )) : (
-          <li>ok</li>
+          <li></li>
         )}
       </MyList>
     );

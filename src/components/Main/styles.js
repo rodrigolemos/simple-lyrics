@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
   font-family: 'Open Sans', sans-serif;
-  background: url('../../../images/background-1.jpg') no-repeat;
+  /* background: url('../../../images/background-1.jpg') no-repeat; */
   background-size: cover;
   display: flex;
   align-items: center;
