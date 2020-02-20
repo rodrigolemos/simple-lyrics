@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import api from '../../services/api';
 import { Container, Form, OpenForm, Title, SubTititle, MyInput, MyButton } from './styles';
+import { ToastContainer, Bounce, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Details from '../Details';
 
 export default class Main extends Component {
@@ -33,7 +35,7 @@ export default class Main extends Component {
 
     try {
 
-      const response = await axios.get(`https://api.vagalume.com.br/search.php?art=${artist}&mus=${song}`);
+      const response = await api.get(`/search.php?art=${artist}&mus=${song}`);
 
       const info = response.data;
 
@@ -45,7 +47,12 @@ export default class Main extends Component {
           showSearch: false
         });
       } else {
-        alert('not found');
+        toast.warn('Ops! Song not found. Please try again.', {
+          position: 'top-center',
+          autoClose: 5000,
+          closeOnClick: true,
+          transition: Bounce
+        });
       }
 
     } catch(err) {
@@ -61,7 +68,7 @@ export default class Main extends Component {
       <>
         <Container>
           <Form show={showSearch}>
-            <Title>Lyrics Finder</Title>
+            <Title>Lemos Lyrics</Title>
             <SubTititle>Without music life would be a mistake ;)</SubTititle>
             <MyInput
               type="text"
@@ -83,6 +90,7 @@ export default class Main extends Component {
           <OpenForm show={showSearch} onClick={() => this.cleanSearch()}>
             Search again
           </OpenForm>
+          <ToastContainer/>
         </Container>
       </>
     );

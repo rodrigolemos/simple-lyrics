@@ -29,6 +29,20 @@ export const Container = styled.div`
     margin-bottom: 15px;
   }
 
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    height: 70px;
+
+    a {
+      color: #888;
+      text-decoration: none;
+    }
+
+  }
+
 `;
 
 export const Song = styled.h1`
@@ -49,14 +63,19 @@ export const Band = styled.h2`
 export const Lyric = styled.pre`
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
+  animation: .5s ${slideShow} ease-in-out;
 `;
 
 export const MyButton = styled.button`
   font-family: 'Poppins', sans-serif;
-  background-color: #4A68B1;
+  background-color: #DDD;
   color: white;
   border: none;
   font-size: 12px;
   padding: 3px 15px;
   outline: none;
+
+  ${({ active }) => active === false && `
+    background-color: #4A68B1;
+  `}
 `;
