@@ -1,35 +1,52 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Container, Form, Title, MyInput, MyButton } from './styles';
-import GlobalStyle from '../../styles/global';
-import List from '../List'
+import { Container, Form, OpenForm, Title, SubTititle, MyInput, MyButton } from './styles';
+import Details from '../Details';
 
 export default class Main extends Component {
   state = {
-    excerpt: '',
-    songs: []
+    artist: '',
+    song: '',
+    info: [],
+    showSearch: true
   };
 
   handleInput = (e) => {
     this.setState({
-      excerpt: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
-  searchExcerpt = async () => {
+  cleanSearch = () => {
+    this.setState({
+      artist: '',
+      song: '',
+      info: [],
+      showSearch: true
+    });
+  }
 
-    const excerpt = encodeURI(this.state.excerpt);
+  searchForDetails = async () => {
+
+    const artist = encodeURI(this.state.artist);
+    const song = encodeURI(this.state.song);
 
     try {
 
-      const response = await axios.get(`https://api.vagalume.com.br/search.excerpt?q=${excerpt}&limit=10`);
+      const response = await axios.get(`https://api.vagalume.com.br/search.php?art=${artist}&mus=${song}`);
 
-      const songs = response.data.response.docs;
+      const info = response.data;
 
-      this.setState({
-        excerpt: '',
-        songs: [...this.state.songs, songs]
-      });
+      if (info.type === 'exact') {
+        this.setState({
+          artist: '',
+          song: '',
+          info: [...this.state.info, info],
+          showSearch: false
+        });
+      } else {
+        alert('not found');
+      }
 
     } catch(err) {
 
@@ -37,24 +54,36 @@ export default class Main extends Component {
   }
 
   render() {
-    
-    const { songs } = this.state;
+
+    const { artist, song, info, showSearch } = this.state;
 
     return (
       <>
         <Container>
-          <Form>
-            <Title>Search</Title>
+          <Form show={showSearch}>
+            <Title>Lyrics Finder</Title>
+            <SubTititle>Without music life would be a mistake ;)</SubTititle>
             <MyInput
               type="text"
-              placeholder="Type an excerpt from a song..."
+              name="artist"
+              placeholder="Artist or band name..."
+              value={artist}
               onChange={this.handleInput}
             />
-            <MyButton type="button" onClick={() => this.searchExcerpt()}>Get information</MyButton>
+            <MyInput
+              type="text"
+              name="song"
+              placeholder="Song name..."
+              value={song}
+              onChange={this.handleInput}
+            />
+            <MyButton type="button" onClick={() => this.searchForDetails()}>Search</MyButton>
           </Form>
-          <List songs={songs}/>
+          <Details info={info} show={showSearch}/>
+          <OpenForm show={showSearch} onClick={() => this.cleanSearch()}>
+            Search again
+          </OpenForm>
         </Container>
-        <GlobalStyle/>
       </>
     );
   }
