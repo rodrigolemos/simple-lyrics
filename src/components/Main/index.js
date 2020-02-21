@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
 import { Container, Form, OpenForm, Title, SubTititle, MyInput, MyButton } from './styles';
+import { IoMdSkipBackward } from 'react-icons/io';
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Details from '../Details';
@@ -88,9 +89,12 @@ export default class Main extends Component {
           </Form>
           <Details info={info} show={showSearch}/>
           <OpenForm show={showSearch} onClick={() => this.cleanSearch()}>
-            Search again
+            <IoMdSkipBackward size={20}/>
           </OpenForm>
           <ToastContainer/>
+          <footer>
+            <a href="https://www.vagalume.com.br/">Powered by Vagalume</a>
+          </footer>
         </Container>
       </>
     );

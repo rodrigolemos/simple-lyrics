@@ -36,9 +36,6 @@ export default class Details extends Component {
               <Lyric>{info[0].mus[0].text}</Lyric>
             )}
             </article>
-            <footer>
-              <a href="https://www.vagalume.com.br/">Powered by Vagalume</a>
-            </footer>
           </>
         ) : (
           <></>

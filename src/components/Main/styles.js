@@ -16,13 +16,29 @@ export const Container = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
   font-family: 'Poppins', sans-serif;
   background-size: cover;
-  background-color: #EEE;
+  background-image: linear-gradient(to bottom, #CB3F65, #E1536A);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
   overflow: auto;
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+
+    a {
+      color: #EEE;
+      text-decoration: none;
+    }
+
+  }
 `;
 
 export const Form = styled.div`
@@ -34,13 +50,17 @@ export const Form = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0px 0px 30px #CCC;
+  
   position: relative;
   animation: .5s ${smoothShow} ease-in-out;
 
   ${({ show }) => show === false && `
     display: none;
   `}
+
+  @media (min-width: 768px) {
+    width: 40%;
+  }
 `;
 
 export const Title = styled.h1`
@@ -97,17 +117,27 @@ export const TextFooter = styled.small`
 
 export const OpenForm = styled.div`
   position: absolute;
-  bottom: 15px;
-  right: 15px;
-  background-color: #4A68B1;
+  bottom: 20px;
+  right: 20px;
+  background-color: #E1536A;
   color: white;
   border: none;
-  font-size: 12px;
-  border-radius: 5px;
-  padding: 6px 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ${({ show }) => show === true && `
     display: none;
   `}
+
+  @media (min-width: 768px) {
+    background-color: #EEE;
+    color: #E1536A;
+    bottom: 30px;
+    right: 30px;
+  }
 `;

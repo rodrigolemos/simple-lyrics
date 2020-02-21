@@ -14,7 +14,6 @@ const slideShow = keyframes`
 
 export const Container = styled.div`
   background-color: #FFF;
-  padding: 10px;
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
@@ -25,22 +24,15 @@ export const Container = styled.div`
     display: none;
   `}
 
-  header {
-    margin-bottom: 15px;
+  @media (min-width: 768px) {
+    width: 45%;
+    height: 85vh;
+    border-radius: 5px;
+    overflow-y: scroll;
   }
 
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    height: 70px;
-
-    a {
-      color: #888;
-      text-decoration: none;
-    }
-
+  header, article {
+    margin: 15px;
   }
 
 `;
