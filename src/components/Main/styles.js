@@ -23,6 +23,10 @@ export const Container = styled.div`
   flex-direction: column;
   height: 90vh;
   overflow: hidden;
+
+  .Toastify__toast-body {
+    font-size: 1.6rem;
+  }
 `;
 
 export const Footer = styled.footer`
@@ -45,13 +49,14 @@ export const Form = styled.div`
   background-color: #FFF;
   border-radius: 5px;
   width: 92%;
-  height: 60%;
+  min-height: 60%;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
   position: relative;
+  backface-visibility: hidden;
   animation: .5s ${smoothShow} ease-in-out;
 
   ${({ show }) => show === false && `
@@ -68,18 +73,29 @@ export const Form = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: #888;
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
-export const SubTititle = styled.h2`
-  font-size: 1.3rem;
-  color: #AAA;
+export const Quote = styled.h2`
+  text-align: center;
   font-weight: lighter;
-  margin-bottom: 3rem;
+
+  span {
+    font-size: 1.3rem;
+    color: #AAA;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+    display: block;
+  }
+
+  small {
+    font-style: italic;
+    color: #BBB;
+  }
 `;
 
 export const MyInput = styled.input`
@@ -110,6 +126,12 @@ export const MyButton = styled.button`
   border-radius: .5rem;
   padding: .8rem 2.8rem;
   outline: none;
+  transition: .1s all ease-in-out;
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0px 2px 10px rgb(225, 83, 106, .5);
+  }
 `;
 
 export const TextFooter = styled.small`
@@ -134,10 +156,16 @@ export const OpenForm = styled.div`
   align-items: center;
   justify-content: center;
   animation: .5s ${smoothShow} ease-in-out;
+  transition: .1s all ease-in-out;
 
   ${({ show }) => show === true && `
     display: none;
   `}
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0px 2px 10px rgb(225, 255, 255, .5);
+  }
 
   @media (min-width: 768px) {
     background-color: #EEE;

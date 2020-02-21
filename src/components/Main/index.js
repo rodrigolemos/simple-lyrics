@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { Container, Footer, Form, OpenForm, Title, SubTititle, MyInput, MyButton } from './styles';
-import { IoMdSkipBackward } from 'react-icons/io';
+import { Container, Footer, Form, OpenForm, Title, Quote, MyInput, MyButton } from './styles';
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Details from '../Details';
@@ -36,19 +35,25 @@ export default class Main extends Component {
 
     try {
 
-      const response = await api.get(`/search.php?art=${artist}&mus=${song}`);
+      const apiInfo = await api.get(`/search.php?art=${artist}&mus=${song}`);
 
-      const info = response.data;
+      const info = apiInfo.data;
 
       if (info.type === 'exact') {
+
+        const artInfo = await api.get(`image.php?bandID=${info.art.id}&limit=1`);
+
+        info.art.img = artInfo.data.images[0].thumbUrl;
+
         this.setState({
           artist: '',
           song: '',
           info: [...this.state.info, info],
           showSearch: false
         });
+
       } else {
-        toast.warn('Ops! Song not found. Please try again.', {
+        toast.warn('Ops! Música não encontrada. Por favor, tente novamente ;)', {
           position: 'top-center',
           autoClose: 5000,
           closeOnClick: true,
@@ -57,7 +62,12 @@ export default class Main extends Component {
       }
 
     } catch(err) {
-
+      toast.error('Ops! Não foi possível consultar as informações. Por favor, tente novamente.', {
+        position: 'top-center',
+        autoClose: 5000,
+        closeOnClick: true,
+        transition: Bounce
+      });
     }
   }
 
@@ -69,28 +79,29 @@ export default class Main extends Component {
       <>
         <Container>
           <Form show={showSearch}>
-            <Title>Lemos Lyrics</Title>
-            <SubTititle>Without music life would be a mistake ;)</SubTititle>
+            <Title>infosong</Title>
             <MyInput
               type="text"
               name="artist"
-              placeholder="Artist or band name..."
+              placeholder="Nome da banda ou artista"
               value={artist}
               onChange={this.handleInput}
             />
             <MyInput
               type="text"
               name="song"
-              placeholder="Song name..."
+              placeholder="Música"
               value={song}
               onChange={this.handleInput}
             />
-            <MyButton type="button" onClick={() => this.searchForDetails()}>Search</MyButton>
+            <MyButton onClick={() => this.searchForDetails()}>Procurar</MyButton>
+            <Quote>
+              <span>"Sem música, a vida seria um erro."</span>
+              <small>Friedrich Nietzsche</small>
+            </Quote>
           </Form>
           <Details info={info} show={showSearch}/>
-          <OpenForm show={showSearch} onClick={() => this.cleanSearch()}>
-            <IoMdSkipBackward size={20}/>
-          </OpenForm>
+          <OpenForm show={showSearch} onClick={() => this.cleanSearch()}>Voltar</OpenForm>
           <ToastContainer/>
         </Container>
         <Footer>

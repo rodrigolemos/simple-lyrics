@@ -79,8 +79,19 @@ export const MyButton = styled.button`
   font-size: 1.2rem;
   padding: .3rem 1.5rem;
   outline: none;
+  transition: .1s all ease-in-out;
+
+  &:active {
+    transform: translateY(2px);
+  }
 
   ${({ active }) => active === false && `
     background-color: #4A68B1;
   `}
+`;
+
+export const InfoArtista = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
 `;
