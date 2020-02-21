@@ -25,36 +25,49 @@ export const Container = styled.div`
   `}
 
   @media (min-width: 768px) {
-    width: 45%;
+    width: 60%;
     height: 85vh;
-    border-radius: 5px;
+    border-radius: .5rem;
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 50%;
+    height: 85vh;
+    border-radius: .5rem;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
   }
 
   header, article {
-    margin: 15px;
+    margin: 1.5rem;
   }
 
 `;
 
 export const Song = styled.h1`
-  font-size: 20px;
+  font-size: 2rem;
   color: #888;
   text-transform: uppercase;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: .5rem;
 `;
 
 export const Band = styled.h2`
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #AAA;
   font-weight: lighter;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 `;
 
 export const Lyric = styled.pre`
   font-family: 'Poppins', sans-serif;
-  font-size: 12px;
+  font-size: 1.2rem;
   animation: .5s ${slideShow} ease-in-out;
 `;
 
@@ -63,8 +76,8 @@ export const MyButton = styled.button`
   background-color: #DDD;
   color: white;
   border: none;
-  font-size: 12px;
-  padding: 3px 15px;
+  font-size: 1.2rem;
+  padding: .3rem 1.5rem;
   outline: none;
 
   ${({ active }) => active === false && `

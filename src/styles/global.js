@@ -8,4 +8,14 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
+  html {
+
+    font-size: 10px;
+    
+    @media (min-width: 768px) {
+      font-size: 13px;
+    }
+
+  }
 `;

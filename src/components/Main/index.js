@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { Container, Form, OpenForm, Title, SubTititle, MyInput, MyButton } from './styles';
+import { Container, Footer, Form, OpenForm, Title, SubTititle, MyInput, MyButton } from './styles';
 import { IoMdSkipBackward } from 'react-icons/io';
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -92,10 +92,10 @@ export default class Main extends Component {
             <IoMdSkipBackward size={20}/>
           </OpenForm>
           <ToastContainer/>
-          <footer>
-            <a href="https://www.vagalume.com.br/">Powered by Vagalume</a>
-          </footer>
         </Container>
+        <Footer>
+          <a href="https://www.vagalume.com.br/">Powered by Vagalume</a>
+        </Footer>
       </>
     );
   }
