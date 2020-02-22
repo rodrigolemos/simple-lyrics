@@ -93,6 +93,10 @@ export const MyButton = styled.button`
   ${({ active }) => active === false && `
     background-color: #4A68B1;
   `}
+
+  ${({ show }) => show === false && `
+    display: none;
+  `}
 `;
 
 export const InfoArtist = styled.div`
