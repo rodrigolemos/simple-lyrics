@@ -71,7 +71,7 @@ export const Img = styled.img`
 
 export const Lyric = styled.pre`
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   animation: .5s ${slideLeft} ease-in-out;
 `;
 

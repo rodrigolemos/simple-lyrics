@@ -24,13 +24,14 @@ export const Footer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 1.2rem;
   width: 100vw;
   height: 10vh;
+  color: #EEE;
 
   a {
     color: #EEE;
-    text-decoration: none;
+    text-decoration: underline;
   }
 `;
 
@@ -67,6 +68,14 @@ export const Title = styled.h1`
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 1rem;
+    color: #E1536A;
+    opacity: .5;
+  }
 `;
 
 export const Quote = styled.h2`
@@ -92,15 +101,15 @@ export const MyInput = styled.input`
   height: 3rem;
   width: 75%;
   background-color: #FFF;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
-  color: #888;
+  color: #777;
   border: none;
   border-bottom: .1rem solid #CCC;
   outline: none;
   margin-bottom: 2rem;
   ::placeholder {
-    color: #888;
+    color: #777;
     opacity: 0.6;
   }
 `;
@@ -132,7 +141,7 @@ export const TextFooter = styled.small`
 
 export const OpenForm = styled.div`
   position: absolute;
-  bottom: 1rem;
+  bottom: 11vh;
   right: 1rem;
   background-color: white;
   color: #E1536A;

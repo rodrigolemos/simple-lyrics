@@ -4,6 +4,7 @@ import { Container, Footer, Form, OpenForm, Title, Quote, MyInput, MyButton } fr
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Details from '../Details';
+import { FaMusic } from 'react-icons/fa';
 
 export default class Main extends Component {
   state = {
@@ -79,21 +80,21 @@ export default class Main extends Component {
       <>
         <Container>
           <Form show={showSearch}>
-            <Title>infosong</Title>
-            <MyInput
-              type="text"
-              name="artist"
-              placeholder="Nome da banda ou artista"
-              spellcheck="false"
-              value={artist}
-              onChange={this.handleInput}
-            />
+            <Title><FaMusic/> Song Lyrics</Title>
             <MyInput
               type="text"
               name="song"
               placeholder="Música"
               spellcheck="false"
               value={song}
+              onChange={this.handleInput}
+            />
+            <MyInput
+              type="text"
+              name="artist"
+              placeholder="Nome da banda ou artista"
+              spellcheck="false"
+              value={artist}
               onChange={this.handleInput}
             />
             <MyButton onClick={() => this.searchForDetails()}>Procurar</MyButton>
@@ -107,7 +108,8 @@ export default class Main extends Component {
           <ToastContainer/>
         </Container>
         <Footer>
-          <a href="https://www.vagalume.com.br/">Powered by Vagalume</a>
+          Criado com &#9829; por&nbsp;<a href="https://github.com/rodrigolemos">Rodrigo</a>
+          &nbsp;utilizando a API&nbsp;<a href="https://www.vagalume.com.br/">Vagalume</a>
         </Footer>
       </>
     );

@@ -32,7 +32,7 @@ export default class Details extends Component {
               <div>
                 <section>
                   <MyButton type="button" active={translated}  onClick={() => this.changeTranslate(false)}>Original</MyButton>
-                  <MyButton type="button" active={!translated} onClick={() => this.changeTranslate(true)}>Traduzida</MyButton>
+                  <MyButton type="button" active={!translated} onClick={() => this.changeTranslate(true)}>Tradução</MyButton>
                 </section>
               </div>
             </header>
