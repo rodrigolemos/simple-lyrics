@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, InfoArtista, Song, Band, Lyric, MyButton } from './styles';
+import { Container, InfoArtist, Song, Band, Lyric, MyButton } from './styles';
 
 export default class Details extends Component {
   state = {
@@ -19,17 +19,16 @@ export default class Details extends Component {
     const body = info[0];
 
     return (
-      <Container show={show}>
+      <>
         { body ? (
-          <>
+          <Container show={show} bg={body.art.img}>
             <header>
-              <InfoArtista>
+              <InfoArtist>
                 <div>
                   <Song>{body.mus[0].name}</Song>
                   <Band>{body.art.name}</Band>
                 </div>
-                <img src={body.art.img} alt="Foto do artista"/>
-              </InfoArtista>
+              </InfoArtist>
               <div>
                 <section>
                   <MyButton type="button" active={translated}  onClick={() => this.changeTranslate(false)}>Original</MyButton>
@@ -44,11 +43,11 @@ export default class Details extends Component {
               <Lyric>{body.mus[0].text}</Lyric>
             )}
             </article>
-          </>
+          </Container>
         ) : (
           <></>
         )}
-      </Container>
+      </>
     );
   }
 }

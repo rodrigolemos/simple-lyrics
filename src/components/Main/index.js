@@ -43,7 +43,7 @@ export default class Main extends Component {
 
         const artInfo = await api.get(`image.php?bandID=${info.art.id}&limit=1`);
 
-        info.art.img = artInfo.data.images[0].thumbUrl;
+        info.art.img = artInfo.data.images[0].url;
 
         this.setState({
           artist: '',
@@ -84,6 +84,7 @@ export default class Main extends Component {
               type="text"
               name="artist"
               placeholder="Nome da banda ou artista"
+              spellcheck="false"
               value={artist}
               onChange={this.handleInput}
             />
@@ -91,6 +92,7 @@ export default class Main extends Component {
               type="text"
               name="song"
               placeholder="Música"
+              spellcheck="false"
               value={song}
               onChange={this.handleInput}
             />

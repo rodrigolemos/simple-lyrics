@@ -1,16 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-
-const slideShow = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateX(-50%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-`;
+import styled from 'styled-components';
+import { slideLeft } from '../../styles/global';
 
 export const Container = styled.div`
   background-color: #FFF;
@@ -18,7 +7,16 @@ export const Container = styled.div`
   height: 100vh;
   overflow-y: auto;
   position: relative;
-  animation: .5s ${slideShow} ease-in-out;
+  animation: .5s ${slideLeft} ease-in-out;
+
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, .85)),
+    url(${props => props.bg});
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: cover;
 
   ${({ show }) => show !== false && `
     display: none;
@@ -65,10 +63,16 @@ export const Band = styled.h2`
   margin-bottom: 1rem;
 `;
 
+export const Img = styled.img`
+  max-width: 30%;
+  max-height: 30%;
+  border-radius: .2rem;
+`;
+
 export const Lyric = styled.pre`
   font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
-  animation: .5s ${slideShow} ease-in-out;
+  animation: .5s ${slideLeft} ease-in-out;
 `;
 
 export const MyButton = styled.button`
@@ -90,7 +94,7 @@ export const MyButton = styled.button`
   `}
 `;
 
-export const InfoArtista = styled.div`
+export const InfoArtist = styled.div`
   display: flex;
   flex: 1;
   justify-content: space-between;

@@ -1,16 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-
-const smoothShow = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateX(50%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0%);
-  }
-`;
+import styled from 'styled-components';
+import { slideRight } from '../../styles/global';
 
 export const Container = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
@@ -57,7 +46,7 @@ export const Form = styled.div`
   flex-direction: column;
   position: relative;
   backface-visibility: hidden;
-  animation: .5s ${smoothShow} ease-in-out;
+  animation: .5s ${slideRight} ease-in-out;
 
   ${({ show }) => show === false && `
     display: none;
@@ -155,7 +144,7 @@ export const OpenForm = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: .5s ${smoothShow} ease-in-out;
+  animation: .5s ${slideRight} ease-in-out;
   transition: .1s all ease-in-out;
 
   ${({ show }) => show === true && `
