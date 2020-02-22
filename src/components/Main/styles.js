@@ -138,37 +138,3 @@ export const TextFooter = styled.small`
   bottom: .5rem;
   color: #888;
 `;
-
-export const OpenForm = styled.div`
-  position: absolute;
-  bottom: 11vh;
-  right: 1rem;
-  background-color: white;
-  color: #E1536A;
-  border: none;
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 50%;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: .5s ${slideRight} ease-in-out;
-  transition: .1s all ease-in-out;
-
-  ${({ show }) => show === true && `
-    display: none;
-  `}
-
-  &:active {
-    transform: translateY(3px);
-    box-shadow: 0px 2px 10px rgb(225, 255, 255, .5);
-  }
-
-  @media (min-width: 768px) {
-    background-color: #EEE;
-    color: #E1536A;
-    bottom: 3rem;
-    right: 3rem;
-  }
-`;

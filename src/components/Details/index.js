@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, InfoArtist, Song, Band, Lyric, MyButton } from './styles';
+import { Container, InfoArtist, Song, Band, Lyric, MyButton, Close } from './styles';
 
 export default class Details extends Component {
   state = {
@@ -14,8 +14,9 @@ export default class Details extends Component {
 
   render() {
 
-    const { info, show } = this.props;
+    const { info, show, close } = this.props;
     const { translated } = this.state;
+    
     const body = info[0];
 
     return (
@@ -43,6 +44,7 @@ export default class Details extends Component {
               <Lyric>{body.mus[0].text}</Lyric>
             )}
             </article>
+            <Close onClick={() => close()}>Voltar</Close>
           </Container>
         ) : (
           <></>

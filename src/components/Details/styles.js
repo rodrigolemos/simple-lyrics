@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { slideLeft } from '../../styles/global';
+import { slideLeft, slideRight } from '../../styles/global';
 
 export const Container = styled.div`
+  position: relative;
   background-color: #FFF;
   width: 100vw;
   height: 100vh;
@@ -98,4 +99,28 @@ export const InfoArtist = styled.div`
   display: flex;
   flex: 1;
   justify-content: space-between;
+`;
+
+export const Close = styled.div`
+  position: sticky;
+  bottom: 2%;
+  left: 85%;
+  background-color: #E1536A;
+  color: white;
+  border: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: 1s ${slideRight} ease-in-out;
+  backface-visibility: hidden;
+  transition: .1s all ease-in-out;
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0px 2px 10px rgb(225, 255, 255, .5);
+  }
 `;

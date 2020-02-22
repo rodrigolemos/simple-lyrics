@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { Container, Footer, Form, OpenForm, Title, Quote, MyInput, MyButton } from './styles';
+import { Container, Footer, Form, Title, Quote, MyInput, MyButton } from './styles';
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Details from '../Details';
@@ -20,7 +20,7 @@ export default class Main extends Component {
     });
   }
 
-  cleanSearch = () => {
+  closeDetails = () => {
     this.setState({
       artist: '',
       song: '',
@@ -42,7 +42,7 @@ export default class Main extends Component {
 
       if (info.type === 'exact') {
 
-        const artInfo = await api.get(`image.php?bandID=${info.art.id}&limit=1`);
+        const artInfo = await api.get(`/image.php?bandID=${info.art.id}&limit=1`);
 
         info.art.img = artInfo.data.images[0].url;
 
@@ -103,8 +103,7 @@ export default class Main extends Component {
               <small>Friedrich Nietzsche</small>
             </Quote>
           </Form>
-          <Details info={info} show={showSearch}/>
-          <OpenForm show={showSearch} onClick={() => this.cleanSearch()}>Voltar</OpenForm>
+          <Details info={info} show={showSearch} close={this.closeDetails}/>
           <ToastContainer/>
         </Container>
         <Footer>
