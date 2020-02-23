@@ -12,6 +12,12 @@ export default class Details extends Component {
     });
   }
 
+  clearTranslate = () => {
+    this.setState({
+      translated: false
+    });
+  }
+
   render() {
 
     let { info, show, close } = this.props;
@@ -50,7 +56,7 @@ export default class Details extends Component {
                     <Lyric>{song.text}</Lyric>
                   )}
                   </article>
-                  <Close onClick={() => close()}>Voltar</Close>
+                  <Close onClick={() => {this.clearTranslate(); close()}}>Voltar</Close>
                 </Container>
     }
 
