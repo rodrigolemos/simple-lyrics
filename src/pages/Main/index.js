@@ -3,7 +3,7 @@ import api from '../../services/api';
 import { Container, Footer, Form, Title, Quote, MyInput, MyButton } from './styles';
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Details from '../Details';
+import Details from '../../components/Details';
 import { FaMusic } from 'react-icons/fa';
 
 export default class Main extends Component {

@@ -24,6 +24,16 @@ export const slideLeft = keyframes`
   }
 `;
 
+export const elementFocus = keyframes`
+  0% {
+    background-color: #6C8AD3;
+  }
+
+  100% {
+    background-color: #4A68B1;
+  }
+`;
+
 export default createGlobalStyle`
   *,
   *::after,

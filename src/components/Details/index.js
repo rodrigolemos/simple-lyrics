@@ -14,14 +14,14 @@ export default class Details extends Component {
 
   render() {
 
-    const { info, show, close } = this.props;
-    const { translated } = this.state;
+    let { info, show, close } = this.props;
+    let { translated } = this.state;
     let details = '';
 
     if (info[0]) {
 
-      const artist = info[0].art;
-      const song = info[0].mus[0];
+      let artist = info[0].art;
+      let song = info[0].mus[0];
       let translation = false;
 
       if (typeof song.translate !== 'undefined') {
