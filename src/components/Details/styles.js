@@ -107,8 +107,8 @@ export const InfoArtist = styled.div`
 
 export const Close = styled.div`
   position: sticky;
-  bottom: 2%;
-  left: 85%;
+  bottom: 3%;
+  left: 85.5%;
   background-color: #E1536A;
   color: white;
   border: none;
@@ -122,6 +122,7 @@ export const Close = styled.div`
   animation: 1s ${slideRight} ease-in-out;
   backface-visibility: hidden;
   transition: .1s all ease-in-out;
+  cursor: pointer;
 
   &:active {
     transform: translateY(3px);

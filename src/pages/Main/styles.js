@@ -125,6 +125,11 @@ export const MyButton = styled.button`
   padding: .8rem 2.8rem;
   outline: none;
   transition: .1s all ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 2px 10px rgb(225, 83, 106, .5);
+  }
 
   &:active {
     transform: translateY(3px);
