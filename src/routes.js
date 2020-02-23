@@ -8,8 +8,8 @@ export default class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={About} />
-          <Route path="/app" component={Main} />
+          <Route path="/" exact component={Main} />
+          <Route path="/about" component={About} />
         </Switch>
       </BrowserRouter>
     );
