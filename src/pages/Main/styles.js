@@ -137,9 +137,11 @@ export const MyButton = styled.button`
   }
 `;
 
-export const TextFooter = styled.small`
+export const ShowAbout = styled.small`
   position: absolute;
   font-size: 1rem;
   bottom: .5rem;
   color: #888;
+  text-decoration: underline;
+  cursor: pointer;
 `;

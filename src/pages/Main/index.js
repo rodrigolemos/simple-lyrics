@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { Container, Footer, Form, Title, Quote, MyInput, MyButton } from './styles';
+import { Container, Footer, Form, Title, Quote, MyInput, MyButton, ShowAbout } from './styles';
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import About from '../About';
 import Details from '../../components/Details';
 import { FaMusic } from 'react-icons/fa';
 
@@ -11,7 +12,8 @@ export default class Main extends Component {
     artist: '',
     song: '',
     info: [],
-    showSearch: true
+    showSearch: true,
+    showAbout: false
   };
 
   handleInput = (e) => {
@@ -25,7 +27,22 @@ export default class Main extends Component {
       artist: '',
       song: '',
       info: [],
-      showSearch: true
+      showSearch: true,
+      showAbout: false
+    });
+  }
+
+  showAbout = () => {
+    this.setState({
+      showSearch: false,
+      showAbout: true
+    });
+  }
+
+  closeAbout = () => {
+    this.setState({
+      showSearch: true,
+      showAbout: false
     });
   }
 
@@ -74,11 +91,12 @@ export default class Main extends Component {
 
   render() {
 
-    const { artist, song, info, showSearch } = this.state;
+    const { artist, song, info, showSearch, showAbout } = this.state;
 
     return (
       <>
         <Container>
+          <About show={showAbout} close={this.closeAbout}/>
           <Form show={showSearch}>
             <Title><FaMusic/> Song Lyrics</Title>
             <MyInput
@@ -102,6 +120,7 @@ export default class Main extends Component {
               <span>"Sem música, a vida seria um erro."</span>
               <small>Friedrich Nietzsche</small>
             </Quote>
+            <ShowAbout onClick={() => this.showAbout()}>Sobre este app</ShowAbout>
           </Form>
           <Details info={info} show={showSearch} close={this.closeDetails}/>
           <ToastContainer/>

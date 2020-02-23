@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { slideRight, elementFocus } from '../../styles/global';
 
 export const Container = styled.div`
@@ -68,7 +67,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const MyButton = styled(Link)`
+export const MyButton = styled.button`
   font-family: 'Poppins', sans-serif;
   background-color: #4A68B1;
   color: white;
