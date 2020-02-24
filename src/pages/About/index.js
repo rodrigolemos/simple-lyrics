@@ -8,7 +8,7 @@ export default class About extends Component {
         const { show, close } = this.props;
 
         return (
-            (show ? (<Container>
+            <Container show={show}>
                 <Disclaimer>
                     <Title>Hello world! <FaHandPeace/></Title>
                     <p>
@@ -17,9 +17,7 @@ export default class About extends Component {
                     </p>
                     <MyButton onClick={() => close()}>Ok, continuar!</MyButton>
                 </Disclaimer>
-            </Container>) : (
-                <></>
-            ))
+            </Container>
         );
     }
 }

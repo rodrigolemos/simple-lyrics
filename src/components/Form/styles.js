@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { slideRight, elementFocus } from '../../styles/global';
+import { slideRight } from '../../styles/global';
 
 export const Container = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
@@ -10,15 +10,32 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   overflow: hidden;
 
-  ${({ show }) => show !== 'About' && `
-    display: none;
-  `}
+  .Toastify__toast-body {
+    font-size: 1.6rem;
+  }
 `;
 
-export const Disclaimer = styled.div`
+export const Footer = styled.footer`
+  font-family: 'Poppins', sans-serif;
+  background-color: #E1536A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  width: 100vw;
+  height: 10vh;
+  color: #EEE;
+
+  a {
+    color: #EEE;
+    text-decoration: underline;
+  }
+`;
+
+export const MyForm = styled.div`
   background-color: #FFF;
   border-radius: 5px;
   width: 92%;
@@ -32,15 +49,9 @@ export const Disclaimer = styled.div`
   backface-visibility: hidden;
   animation: .5s ${slideRight} ease-in-out;
 
-  ${({ show }) => show === false && `
+  ${({ show }) => show !== 'Form' && `
     display: none;
   `}
-
-  p {
-      font-size: 1.3rem;
-      color: #888;
-      text-align: justify;
-  }
 
   @media (min-width: 768px) {
     width: 50%;
@@ -61,9 +72,45 @@ export const Title = styled.h1`
   align-items: center;
 
   svg {
-    margin-left: 1rem;
+    margin-right: 1rem;
     color: #E1536A;
     opacity: .5;
+  }
+`;
+
+export const Quote = styled.h2`
+  text-align: center;
+  font-weight: lighter;
+
+  span {
+    font-size: 1.3rem;
+    color: #AAA;
+    margin-top: 3rem;
+    margin-bottom: .5rem;
+    display: block;
+  }
+
+  small {
+    font-style: italic;
+    color: #BBB;
+  }
+`;
+
+export const MyInput = styled.input`
+  font-family: 'Poppins', sans-serif;
+  height: 3rem;
+  width: 75%;
+  background-color: #FFF;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #777;
+  border: none;
+  border-bottom: .1rem solid #CCC;
+  outline: none;
+  margin-bottom: 2rem;
+  ::placeholder {
+    color: #777;
+    opacity: 0.6;
   }
 `;
 
@@ -72,18 +119,29 @@ export const MyButton = styled.button`
   background-color: #4A68B1;
   color: white;
   border: none;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   font-size: 1.6rem;
   border-radius: .5rem;
   padding: .8rem 2.8rem;
   outline: none;
   transition: .1s all ease-in-out;
-  text-decoration: none;
-  animation: 1.5s ${elementFocus} ease-in-out;
-  animation-iteration-count: infinite;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 2px 10px rgb(225, 83, 106, .5);
+  }
 
   &:active {
     transform: translateY(3px);
     box-shadow: 0px 2px 10px rgb(225, 83, 106, .5);
   }
+`;
+
+export const ShowAbout = styled.small`
+  position: absolute;
+  font-size: 1rem;
+  bottom: .5rem;
+  color: #888;
+  text-decoration: underline;
+  cursor: pointer;
 `;

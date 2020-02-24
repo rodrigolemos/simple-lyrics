@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { Container, Footer, Form, Title, Quote, MyInput, MyButton, ShowAbout } from './styles';
+import { Container, Footer } from './styles';
 import { ToastContainer, Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import About from '../About';
 import Details from '../../components/Details';
-import { FaMusic } from 'react-icons/fa';
+import Form from '../../components/Form';
 
 export default class Main extends Component {
   state = {
     artist: '',
     song: '',
     info: [],
-    showSearch: true,
-    showAbout: false
+    component: 'Form'
   };
 
   handleInput = (e) => {
@@ -22,27 +21,18 @@ export default class Main extends Component {
     });
   }
 
-  closeDetails = () => {
+  showForm = () => {
     this.setState({
       artist: '',
       song: '',
       info: [],
-      showSearch: true,
-      showAbout: false
+      component: 'Form'
     });
   }
 
   showAbout = () => {
     this.setState({
-      showSearch: false,
-      showAbout: true
-    });
-  }
-
-  closeAbout = () => {
-    this.setState({
-      showSearch: true,
-      showAbout: false
+      component: 'About'
     });
   }
 
@@ -67,7 +57,7 @@ export default class Main extends Component {
           artist: '',
           song: '',
           info: [...this.state.info, info],
-          showSearch: false
+          component: 'Details'
         });
 
       } else {
@@ -91,38 +81,20 @@ export default class Main extends Component {
 
   render() {
 
-    const { artist, song, info, showSearch, showAbout } = this.state;
+    const { artist, song, info, component } = this.state;
 
     return (
       <>
         <Container>
-          <About show={showAbout} close={this.closeAbout}/>
-          <Form show={showSearch}>
-            <Title><FaMusic/> Song Lyrics</Title>
-            <MyInput
-              type="text"
-              name="song"
-              placeholder="Música"
-              spellcheck="false"
-              value={song}
-              onChange={this.handleInput}
-            />
-            <MyInput
-              type="text"
-              name="artist"
-              placeholder="Nome da banda ou artista"
-              spellcheck="false"
-              value={artist}
-              onChange={this.handleInput}
-            />
-            <MyButton onClick={() => this.searchForDetails()}>Procurar</MyButton>
-            <Quote>
-              <span>"Sem música, a vida seria um erro."</span>
-              <small>Friedrich Nietzsche</small>
-            </Quote>
-            <ShowAbout onClick={() => this.showAbout()}>Sobre este app</ShowAbout>
-          </Form>
-          <Details info={info} show={showSearch} close={this.closeDetails}/>
+          <About show={component} close={this.showForm}/>
+          <Details info={info} show={component} close={this.showForm}/>
+          <Form
+            show={component}
+            artist={artist}
+            song={song}
+            handle={this.handleInput}
+            searchForDetails={this.searchForDetails}
+            showAbout={this.showAbout}/>
           <ToastContainer/>
         </Container>
         <Footer>

@@ -19,7 +19,7 @@ export const Container = styled.div`
   background-position: right top;
   background-size: cover;
 
-  ${({ show }) => show !== false && `
+  ${({ show }) => show !== 'Details' && `
     display: none;
   `}
 
