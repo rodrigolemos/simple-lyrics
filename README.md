@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Clone or download the repository:
 ```
-https://github.com/rodrigolemos/search-for-a-song
+https://github.com/rodrigolemos/search-for-a-song.git
 ```
 
 ### `yarn install`
