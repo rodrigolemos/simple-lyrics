@@ -26,6 +26,6 @@ You will also see any lint errors in the console.
 ## Additional resources
 - [Vagalume API](https://api.vagalume.com.br/)
 
-## Autor
+## Author
 
 Rodrigo Lemos
