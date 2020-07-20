@@ -1,4 +1,4 @@
-# Song Lyrics Project
+# Search for a song project
 
 The main objective of this app is to show the practical usability of a third part API, showing images, lyrics and music and band names. As a studies application, there is no intention to infringe the copyright of the artists or Vagalume, the API vendor.
 
