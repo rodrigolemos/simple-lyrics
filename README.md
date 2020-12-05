@@ -1,6 +1,8 @@
-# Search for a song project
+# Simple Lyrics Project
 
 The main objective of this app is to show the practical usability of a third part API, showing images, lyrics and music and band names. As a studies application, there is no intention to infringe the copyright of the artists or Vagalume, the API vendor.
+
+An important note: part of the code implemented here may have been changed or not be currently used by React maintainers, so I ask that you do not follow this project as a development standard for 2020, but as a way to analyze the evolution of my coding.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
