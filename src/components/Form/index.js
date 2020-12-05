@@ -9,7 +9,7 @@ export default class Form extends Component {
 
         return (
           <MyForm show={show}>
-            <Title><FaMusic/> Song Lyrics</Title>
+            <Title><FaMusic/> Simple Lyrics</Title>
             <MyInput
               type="text"
               name="song"
