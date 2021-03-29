@@ -1,45 +1,34 @@
-# Simple Lyrics Project
+# Simple Lyrics
 
-The main objective of this app is to show the practical usability of a third part API, showing images, lyrics and music and band names. As a studies application, there is no intention to infringe the copyright of the artists or Vagalume, the API vendor.
+## Sobre
 
-## An important note
+O principal objetivo deste app é mostrar na prática a utilização de uma API de terceiros, exibindo imagens, letras e nomes de músicas e bandas. Como app de estudos, não há intenção de infringir os direitos autorais dos artistas ou Vagalume, o fornecedor da API.
 
-Part of the code implemented here may have been changed or not be currently used by React maintainers, so I ask that you do not follow this project as a development standard for 2020, but as a way to analyze the evolution of my coding.
+## Importante
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mantenho esse projeto ativo no meu Github para que possa acompanhar a evolução do meu código. Por isso, grande parte do código implementado nesse projeto não é mais utilizada como padrão de mercado ou atualizada pela equipe que mantém o framework React, como class components, por exemplo. Caso queira consultar um projeto que utiliza práticas mais atuais de mercado como hooks, function components e TypeScript, recomendo [este](https://github.com/rodrigolemos/my-school-front) repositório.
 
-## How to run
+## Como executar o projeto localmente
 
-Clone or download the repository:
+```bash
+# Clone este repositório
+$ git clone https://github.com/rodrigolemos/simple-lyrics
+
+# Acesse a pasta do projeto
+$ cd simple-lyrics
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
 ```
-https://github.com/rodrigolemos/search-for-a-song.git
-```
 
-### `yarn install`
+Após esses passos, aplicação estará disponível na porta 3000  - http://localhost:3000.
 
-To install dependencies.<br />
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-# Demo
-
-- Search
-
-![Search form](https://github.com/rodrigolemos/simple-lyrics/blob/master/public/images/simple-lyrics-demo.png)
-
-- Lyrics
-
-![Lyrics](https://github.com/rodrigolemos/simple-lyrics/blob/master/public/images/simple-lyrics-search.png)
-
-## Additional resources
+## Recursos adicionais
 - [Vagalume API](https://api.vagalume.com.br/)
 
-## Author
+## Autor
 
 Rodrigo Lemos
