@@ -35,7 +35,7 @@ export const Footer = styled.footer`
   }
 `;
 
-export const MyForm = styled.div`
+export const MyForm = styled.form`
   background-color: #FFF;
   border-radius: 5px;
   width: 92%;

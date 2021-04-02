@@ -8,9 +8,11 @@ export default class Form extends Component {
         const { artist, song, show, handle, searchForDetails, showAbout } = this.props;
 
         return (
-          <MyForm show={show}>
+          <MyForm show={show} onSubmit={searchForDetails}>
             <Title><FaMusic/> Simple Lyrics</Title>
             <MyInput
+              autoFocus
+              required
               type="text"
               name="song"
               placeholder="Música"
@@ -19,6 +21,7 @@ export default class Form extends Component {
               onChange={handle}
             />
             <MyInput
+              required
               type="text"
               name="artist"
               placeholder="Nome da banda ou artista"
@@ -26,7 +29,7 @@ export default class Form extends Component {
               value={artist}
               onChange={handle}
             />
-            <MyButton onClick={() => searchForDetails()}>Procurar</MyButton>
+            <MyButton>Procurar</MyButton>
             <Quote>
               <span>"Sem música, a vida seria um erro."</span>
               <small>Friedrich Nietzsche</small>

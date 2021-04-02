@@ -36,7 +36,8 @@ export default class Main extends Component {
     });
   }
 
-  searchForDetails = async () => {
+  searchForDetails = async event => {
+    event.preventDefault();
 
     const artist = encodeURI(this.state.artist);
     const song = encodeURI(this.state.song);
